@@ -3,12 +3,12 @@
 local storage = core.get_mod_storage()
 local mod_store_api = {}
 
-function backend.set(key, value)
+function mod_store_api.set(key, value)
     storage:set_string(key, core.serialize(value))
 end
 
-function backend.get(key)
+function mod_store_api.get(key)
     return core.deserialize(storage:get_string(key))
 end
 
-return backend
+return mod_store_api
